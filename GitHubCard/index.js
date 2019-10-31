@@ -49,7 +49,7 @@ function createCard(data) {
   p1.textContent = data.login;
 
   const p2 = document.createElement("p");
-  p2.textContent = `Location: ${data.location}`;
+  p2.textContent = `Location: ${data.location ? data.location : "Earth"}`;
 
   const p3 = document.createElement("p");
   p3.textContent = `Profile: \n`;
