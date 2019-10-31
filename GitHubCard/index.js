@@ -111,7 +111,25 @@ axios
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [
+  "ropeks",
+  "brendajoshua",
+  "gaearon",
+  "ornicar",
+  "lukechampine"
+];
+
+followersArray.forEach(follower => {
+  axios
+    .get(`https://api.github.com/users/${follower}`)
+    .then(res => {
+      const followerCard = createCard(res.data);
+      document.querySelector(".cards").appendChild(followerCard);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+});
 
 /* List of LS Instructors Github username's: 
   tetondan
